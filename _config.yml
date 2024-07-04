@@ -1,23 +1,22 @@
+title: Jadson de Sousa Mattos
+description: Developer FullStack
+site_title: ''
 
-title: My Resume
-url: 'http://junlulocky.com'
-baseurl: '' #change it according to your repository name
+# Build settings
+markdown: kramdown
+exclude: [vendor/ruby]
 
+# Personalization
+github_username: JadsonMattos
+blog_url: 
+email: jadson.sousamattos@gmail.com
+keybase_username:
+twitter_username:
+reddit_username:
+linkedin_username: jadsonmattos
 
+# absolute or relative
+profile_picture: assets/images/android512.png
 
-# Profile information
-yourname: Jadson S Mattos  ## put your name
-title: 'DEVELOPER FULL-STACK'  ## your title
-location: Brazil
-
-
-## Social Profiles
-facebook: http://www.facebook.com  ## your facebook account url
-twitter: http://www.twitter.com  ## your twitter account url
-linkedin: http://www.linkedin.com/in/jadsonmattos  ## your linkedin account url
-dribbble: http://www.dribble.com  ## you dribbble account url
-foursquare: http://www.foursquare.com  ## your foursquare account url
-
-
-
-# Update all the sections by editing the files inside _includes folder.
+# Google Analytics ID
+google_analytics: 
