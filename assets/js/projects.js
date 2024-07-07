@@ -19,141 +19,150 @@ let render_projects = (slug) => {
             description: "Desenvolvimento de uma página HTML estilizada com CSS. Através desta aplicação, será possível realizar a construção de código HTML, posicionamento e estilização CSS.",
             categories: ['featured', 'fundamentos']
         },
-        // {
-        //     image: 'assets/images/mobile-landscape.jpg',
-        //     link: 'https://github.com/abhn/Wall-E',
-        //     title: 'Wall-E',
-        //     demo: 'http://wall-e-jekyll.github.io/',
-        //     technologies: ['Semantic UI', 'Jekyll'],
-        //     description: "A modern Jekyll theme with grid frontpage, beautiful typography, mobile responsive, made with Semantic UI.",
-        //     categories: ['featured', 'webdev']
-        // },
-        // {
-        //     image: 'assets/images/collage.jpg',
-        //     link: 'https://github.com/abhn/Marvel',
-        //     title: 'Marvel',
-        //     demo: false,
-        //     technologies: ['Android', 'OpenCV'],
-        //     description: "Attendance marking tool that uses face recognition for marking attendance and firebase for tracking and analytics.",
-        //     categories: ['featured', 'native']
-        // },
-        // {
-        //     image: 'assets/images/mpw.jpg',
-        //     link: 'https://github.com/abhn/mpw',
-        //     title: 'Master Password',
-        //     demo: 'https://www.nagekar.com/mpw',
-        //     technologies: ['Semantic UI', 'CSS3'],
-        //     description: "Master Password is an ingenious password solution that makes your passwords truly impossible to lose.",
-        //     categories: ['featured', 'security']
-        // },
-        // {
-        //     image: 'assets/images/social-share-count.jpeg',
-        //     link: 'https://github.com/abhn/Social-Share-Counts',
-        //     title: 'Social Share Count',
-        //     demo: false,
-        //     technologies: ['Python'],
-        //     description: "Ever wondered how many times a URL has been shared on popular social networks?",
-        //     categories: ['native']
-        // },
-        // {
-        //     image: 'assets/images/data-destroyer.png',
-        //     link: 'https://github.com/abhn/data-destroyer-gui',
-        //     title: 'Data Destroyer',
-        //     demo: false,
-        //     technologies: ['C++', 'Qt'],
-        //     description: "Native GUI wrapper for GNU coreutils tool 'dd'",
-        //     categories: ['native']
-        // },
-        // {
-        //     image: 'assets/images/raspberry-pi-monitor.png',
-        //     link: 'https://github.com/abhn/RPi-Status-Monitor',
-        //     title: 'Raspberry Pi Monitor',
-        //     demo: false,
-        //     technologies: ['python', 'flask'],
-        //     description: "Web based status monitor/smart mirror, displays system stats, weather and more.",
-        //     categories: ['webdev', 'diy']
-        // },
-        // {
-        //     image: 'assets/images/s3scan.png',
-        //     link: 'https://github.com/abhn/S3Scan',
-        //     title: 'S3Scan',
-        //     demo: false,
-        //     technologies: ['python'],
-        //     description: "Automate crawling of a website and find publicly open S3 buckets for takeover.",
-        //     categories: ['native', 'security']
-        // },
-        // {
-        //     image: 'assets/images/elementary.png',
-        //     link: 'https://github.com/abhn/Elementary',
-        //     title: 'Elementary',
-        //     demo: 'https://elementary-jekyll.github.io/',
-        //     technologies: ['Jekyll', 'CSS3'],
-        //     description: "Elementary is a zero Javascript and minimal CSS ultra lightweight Jekyll theme for those of you who love simplicity.",
-        //     categories: ['webdev']
-        // },
-        // {
-        //     image: 'assets/images/soot-spirits.png',
-        //     link: 'https://github.com/abhn/Soot-Spirits',
-        //     title: 'Soot Spirits',
-        //     demo: 'https://sootspirits.github.io',
-        //     technologies: ['Jekyll', 'CSS3'],
-        //     description: "A simple responsive two column Jekyll theme. Great for personal blog and basic portfolio website.",
-        //     categories: ['webdev']
-        // },
-        // {
-        //     image: 'assets/images/python-chat.png',
-        //     link: 'https://www.nagekar.com/2014/12/lan-group-messenger-in-python.html',
-        //     title: 'Terminal Group Chat',
-        //     demo: false,
-        //     technologies: ['Python', 'Sockets'],
-        //     description: "Simple terminal group chat based on native sockets using Python.",
-        //     categories: ['native']
-        // },
-        // {
-        //     image: 'assets/images/old-lcd.jpg',
-        //     link: 'https://www.nagekar.com/2018/05/reusing-old-laptop-lcd-panel.html',
-        //     title: 'Reusing Old LCD Panel',
-        //     demo: false,
-        //     technologies: ['DIY'],
-        //     description: "Reusing a dead laptop's LCD panel as a secondary monitor.",
-        //     categories: ['diy']
-        // },
-        // {
-        //     image: 'assets/images/nextcloud-enc.png',
-        //     link: 'https://www.nagekar.com/2017/08/private-cloud-part-2.html',
-        //     title: 'Encrypted Self-Hosted Cloud',
-        //     demo: false,
-        //     technologies: ['NextCloud', 'GnuPG'],
-        //     description: "Self hosted encrypted cloud setup with Nextcloud and GnuPG.",
-        //     categories: ['diy', 'security']
-        // },
-        // {
-        //     image: 'assets/images/google-cloud-backup.png',
-        //     link: 'https://www.nagekar.com/2018/05/encrypted-backup-with-duplicity.html',
-        //     title: 'Encrypted Backups - Google Cloud',
-        //     demo: false,
-        //     technologies: ['NextCloud', 'Duplicity'],
-        //     description: "Create automated encrypted incremental backups of data. Sync everything securely to Google Cloud.",
-        //     categories: ['diy', 'security']
-        // },
-        // {
-        //     image: 'assets/images/pi-cloud.jpg',
-        //     link: 'https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html',
-        //     title: 'Local Cloud - Raspberry Pi',
-        //     demo: false,
-        //     technologies: ['FTP', 'DIY'],
-        //     description: "Host a local cloud server with a Raspberry Pi and a spare hard disk. Access data instantaneously on any device on the network.",
-        //     categories: ['diy']
-        // },
-        // {
-        //     image: 'assets/images/koalamate.png',
-        //     link: 'https://github.com/abhn/koalamate',
-        //     title: 'Koalamate',
-        //     demo: false,
-        //     technologies: ['Electron', 'Javascript'],
-        //     description: "A cross-platform desktop application that serves as a Wolfram Alpha query place and notes taker.",
-        //     categories: ['native']
-        // },
+        {
+            image: 'assets/images/calendar.png',
+            link: 'https://github.com/JadsonMattos/Tryber-Calendar',
+            title: 'Calendário - Modelo',
+            demo: 'https://jadsonmattos.github.io/Tryber-Calendar',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Nesse calendário, você vai poder adicionar feriados e compromissos, além de adicionar as tarefas que você precisa realizar!.",
+            categories: ['featured', 'fundamentos']
+        },
+        {
+            image: 'assets/images/paleta.png',
+            link: 'https://github.com/JadsonMattos/Pixel-Arts',
+            title: 'Pixel Arts',
+            demo: 'https://jadsonmattos.github.io/Pixel-Arts',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Paleta de cores.",
+            categories: ['featured', 'fundamentos']
+        },
+        {
+            image: 'assets/images/todo.png',
+            link: 'https://github.com/JadsonMattos/Todo-List',
+            title: 'Todo List',
+            demo: 'https://jadsonmattos.github.io/Todo-List',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Lista de tarefas usando HTML, CSS e JavaScript.",
+            categories: ['featured', 'fundamentos']
+        },
+        {
+            image: 'assets/images/meme.png',
+            link: 'https://github.com/JadsonMattos/Meme-Generator',
+            title: 'Meme Generator',
+            demo: 'https://jadsonmattos.github.io/Meme-Generator',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Aplicação usando HTML, CSS e JAVASCRIPT onde seja possível fazer upload de imagens para criar memes.",
+            categories: ['fundamentos']
+        },
+        {
+            image: 'assets/images/color-guess.png',
+            link: 'https://github.com/JadsonMattos/Color-Guess',
+            title: 'Color Guess',
+            demo: 'https://jadsonmattos.github.io/Color-Guess',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Nesta aplicação deverá ser possível jogar um jogo de adivinhação de cores.",
+            categories: ['fundamentos']
+        },
+        {
+            image: 'assets/images/carta.png',
+            link: 'https://github.com/JadsonMattos/Carta-Misteriosa',
+            title: 'Carta Misteriosa',
+            demo: 'https://jadsonmattos.github.io/Carta-Misteriosa',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Dado um valor digitado em um campo de texto, as palavras terão a aparência de uma carta onde cada palavra possui uma estilização própria.",
+            categories: ['fundamentos']
+        },
+        {
+            image: 'assets/images/travel.png',
+            link: 'https://github.com/JadsonMattos/Trybe-Travel',
+            title: 'Form Travel',
+            demo: 'https://jadsonmattos.github.io/Trybe-Travel',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Formulário para concorrer a uma viagem.",
+            categories: ['fundamentos']
+        },
+        {
+            image: 'assets/images/techGalery.png',
+            link: 'https://github.com/JadsonMattos/Tech-Gallery',
+            title: 'Tech Gallery',
+            demo: 'https://jadsonmattos.github.io/Tech-Galery',
+            technologies: ['HTML', 'CSS'],
+            description: "Página web que é uma galeria de fotos com algumas linguagens e frameworks front-end.",
+            categories: ['fundamentos']
+        },
+        {
+            image: 'assets/images/tryflix.png',
+            link: 'https://github.com/JadsonMattos/Tryflix',
+            title: 'Tryflix',
+            demo: 'https://jadsonmattos.github.io/Tryflix',
+            technologies: ['HTML', 'CSS'],
+            description: "Desenvolvendo catálogo com flexbox, esboço apenas.",
+            categories: ['fundamentos']
+        },
+        {
+            image: 'assets/images/trybewarts.png',
+            link: 'https://github.com/JadsonMattos/Trybewarts',
+            title: 'Trybewarts',
+            demo: 'https://jadsonmattos.github.io/Trybewarts',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Formulário dinâmico.",
+            categories: ['fundamentos']
+        },
+        {
+            image: 'assets/images/generate.png',
+            link: 'https://github.com/JadsonMattos/generate-password',
+            title: 'Generate Pass',
+            demo: 'https://generate-pass.surge.sh',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Para uma sequência de 12 caracteres e com 30 tentativas aleatórias por segundos, o tempo para adivinhar a senha passa dos 10 anos.",
+            categories: ['frontend']
+        },
+        {
+            image: 'assets/images/validate.png',
+            link: 'https://github.com/JadsonMattos/camps-validation',
+            title: 'Camps Validation',
+            demo: 'https://camps-validation.surge.sh',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Validador de campos.",
+            categories: ['frontend']
+        },
+        {
+            image: 'assets/images/microblogs.png',
+            link: 'https://github.com/JadsonMattos/microblogs',
+            title: 'Microblogs',
+            demo: 'https://microblogs-app.surge.sh',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Página para leitura de posts de várias pessoas.",
+            categories: ['frontend']
+        },
+        {
+            image: 'assets/images/heroes.png',
+            link: 'https://github.com/JadsonMattos/superheroes',
+            title: 'Super Heroes',
+            demo: 'https://heroes-super.surge.sh',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Apis heroes and alerts.",
+            categories: ['frontend']
+        },
+        {
+            image: 'assets/images/pet.png',
+            link: 'https://github.com/JadsonMattos/select-pet',
+            title: 'Random Pets',
+            demo: 'https://dogsandcats.surge.sh',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "Aplicação que exibe fotos aleatórias de cães e gatos.",
+            categories: ['frontend']
+        },
+        {
+            image: 'assets/images/cambio.png',
+            link: 'https://github.com/JadsonMattos/casa-de-cambio',
+            title: 'Casa de Câmbio',
+            demo: 'https://exchange-home.surge.sh',
+            technologies: ['HTML', 'CSS', 'JavaScript'],
+            description: "O projeto da casa de câmbio é uma aplicação que busca a conversão da taxa de uma moeda para diversas outras.",
+            categories: ['frontend']
+        },
     ]
 
     let projects = [];
@@ -186,7 +195,7 @@ let project_mapper = project => {
                     <article class="card__article">
                         <h2><a href="${project.link}">${project.title}</a></h2>
         
-                        <p class="paragraph-text-normal">${project.description} ${project.demo ? `<a href="${project.demo}">Demo</a>` : ''}</p>
+                        <p class="paragraph-text-normal">${project.description} ${project.demo ? `<a href="${project.demo}"><b>DEMO</b></a>` : ''}</p>
                     </article>
 
                                 
