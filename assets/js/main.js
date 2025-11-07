@@ -1,4 +1,30 @@
 // Vanilla JS - Substitui jQuery mantendo comportamento original
+const EMAILJS_CONFIG = {
+    serviceID: 'service_oj3gntn',
+    templateID: 'template_kywetmb',
+    publicKey: 'WkMClvTRGjbzrGuB4'
+};
+
+let emailjsInitialized = false;
+
+function ensureEmailJSInitialized() {
+    if (typeof emailjs === 'undefined') {
+        return false;
+    }
+
+    if (!emailjsInitialized) {
+        try {
+            emailjs.init(EMAILJS_CONFIG.publicKey);
+            emailjsInitialized = true;
+        } catch (error) {
+            console.error('EmailJS init failed:', error);
+            return false;
+        }
+    }
+
+    return true;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     initFocusMode();
     general_utils();
@@ -287,7 +313,6 @@ function initContactForm() {
 
     const feedback = document.getElementById('contact-feedback');
     const submitBtn = form.querySelector('.contact-submit');
-    const formAction = form.getAttribute('action');
 
     form.addEventListener('submit', async function (event) {
         event.preventDefault();
@@ -295,12 +320,18 @@ function initContactForm() {
         const currentLang = window.currentLanguage || 'en';
         const langPack = translations[currentLang] || translations.en;
 
-        if (!formAction || formAction.includes('YOUR_FORM_ID')) {
+        const languageField = document.getElementById('contact-language');
+        if (languageField) {
+            languageField.value = currentLang;
+        }
+
+        if (!ensureEmailJSInitialized()) {
             if (feedback) {
                 feedback.textContent = langPack['contact-form-error'];
                 feedback.classList.remove('success');
                 feedback.classList.add('error');
             }
+            console.error('EmailJS library is not available.');
             return;
         }
 
@@ -313,32 +344,20 @@ function initContactForm() {
             submitBtn.disabled = true;
         }
 
-        const formData = new FormData(form);
-
         try {
-            const response = await fetch(formAction, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: formData
-            });
+            await emailjs.sendForm(EMAILJS_CONFIG.serviceID, EMAILJS_CONFIG.templateID, form);
 
-            if (response.ok) {
-                form.reset();
-                const languageField = document.getElementById('contact-language');
-                if (languageField) {
-                    languageField.value = currentLang;
-                }
-                if (feedback) {
-                    feedback.textContent = langPack['contact-form-success'];
-                    feedback.classList.remove('error');
-                    feedback.classList.add('success');
-                }
-            } else {
-                throw new Error('Form submission failed');
+            form.reset();
+            if (languageField) {
+                languageField.value = currentLang;
+            }
+            if (feedback) {
+                feedback.textContent = langPack['contact-form-success'];
+                feedback.classList.remove('error');
+                feedback.classList.add('success');
             }
         } catch (error) {
+            console.error('EmailJS submission failed:', error);
             if (feedback) {
                 feedback.textContent = langPack['contact-form-error'];
                 feedback.classList.remove('success');
