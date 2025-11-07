@@ -2,53 +2,109 @@
 <div class="section-wrapper">
     <section class="section skills" id="skills">
         <div>
-            <div class="section-heading" id="skills-text">Skills</div>
+            <div class="section-heading" id="skills-text" data-i18n="skills-title">Skills</div>
 
             <div class="skills-grid">
                 <div class="what-i-do">
-                    <h3 class="center-align skills-subsection">Summary</h3>
-                    <p class="paragraph-text center-align">
-                        Full stack Developer
+                    <h3 class="center-align skills-subsection" data-i18n="skills-summary-title">Summary</h3>
+                    <p class="paragraph-text center-align" data-i18n="skills-summary-text">
+                        Full Stack Developer
                     </p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; text-align: center;">
+                        <div style="padding: 10px;">
+                            <i class="fab fa-java" style="font-size: 2.5rem; color: #007396;"></i>
+                            <div style="font-size: 0.8rem; margin-top: 5px;">Java</div>
+                        </div>
+                        <div style="padding: 10px;">
+                            <i class="fab fa-node-js" style="font-size: 2.5rem; color: #339933;"></i>
+                            <div style="font-size: 0.8rem; margin-top: 5px;">Node.js</div>
+                        </div>
+                        <div style="padding: 10px;">
+                            <i class="fab fa-python" style="font-size: 2.5rem; color: #3776AB;"></i>
+                            <div style="font-size: 0.8rem; margin-top: 5px;">Python</div>
+                        </div>
+                        <div style="padding: 10px;">
+                            <i class="fab fa-react" style="font-size: 2.5rem; color: #61DAFB;"></i>
+                            <div style="font-size: 0.8rem; margin-top: 5px;">React</div>
+                        </div>
+                        <div style="padding: 10px;">
+                            <i class="fab fa-docker" style="font-size: 2.5rem; color: #2496ED;"></i>
+                            <div style="font-size: 0.8rem; margin-top: 5px;">Docker</div>
+                        </div>
+                        <div style="padding: 10px;">
+                            <i class="fas fa-database" style="font-size: 2.5rem; color: #4479A1;"></i>
+                            <div style="font-size: 0.8rem; margin-top: 5px;">SQL/NoSQL</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill Badges Animados -->
+                    <div class="skill-badges-container" style="margin-top: 30px;">
+                        <div class="skill-badge" style="animation-delay: 0.1s;"><i class="fas fa-code"></i> Clean Code</div>
+                        <div class="skill-badge" style="animation-delay: 0.2s;"><i class="fas fa-flask"></i> TDD</div>
+                        <div class="skill-badge" style="animation-delay: 0.3s;"><i class="fas fa-cubes"></i> SOLID</div>
+                        <div class="skill-badge" style="animation-delay: 0.4s;"><i class="fas fa-sitemap"></i> Microservices</div>
+                        <div class="skill-badge" style="animation-delay: 0.5s;"><i class="fas fa-server"></i> RESTful APIs</div>
+                        <div class="skill-badge" style="animation-delay: 0.6s;"><i class="fas fa-cloud"></i> Cloud (AWS)</div>
+                        <div class="skill-badge" style="animation-delay: 0.7s;"><i class="fab fa-git-alt"></i> Git/GitHub</div>
+                        <div class="skill-badge" style="animation-delay: 0.8s;"><i class="fas fa-rocket"></i> Agile/Scrum</div>
+                    </div>
                 </div>
                 <div class="technical-skills">
-                    <h3 class="center-align skills-subsection">Technical</h3>
+                    <h3 class="center-align skills-subsection" data-i18n="skills-technical-title">Technical</h3>
                     <div class="progress-bars">
                         <div class="skillbar clearfix " data-percent="90%">
                             <div class="skillbar-title" style="background: #2980b9;"><span>Javascript</span></div>
                             <div class="skillbar-bar" style="background: #3498db;"></div>
-                        </div> <!-- End Skill Bar -->
+                        </div>
 
                         <div class="skillbar clearfix " data-percent="85%">
                             <div class="skillbar-title" style="background: #2980b9;"><span>ReactJS</span></div>
                             <div class="skillbar-bar" style="background: #3498db;"></div>
-                        </div> <!-- End Skill Bar -->
+                        </div>
 
                         <div class="skillbar clearfix " data-percent="80%">
                             <div class="skillbar-title" style="background: #2980b9;"><span>GNU/Linux</span></div>
                             <div class="skillbar-bar" style="background: #3498db"></div>
-                        </div> <!-- End Skill Bar -->
+                        </div>
 
                         
                         <div class="skillbar clearfix " data-percent="75%">
                             <div class="skillbar-title" style="background: #2980b9;"><span>CSS3</span></div>
                             <div class="skillbar-bar" style="background: #3498db;"></div>
-                        </div> <!-- End Skill Bar -->
+                        </div>
                         
                         <div class="skillbar clearfix " data-percent="75%">
                             <div class="skillbar-title" style="background: #2980b9;"><span>Python</span></div>
                             <div class="skillbar-bar" style="background: #3498db;"></div>
-                        </div> <!-- End Skill Bar -->
+                        </div>
                         
                         <div class="skillbar clearfix " data-percent="70%">
                             <div class="skillbar-title" style="background: #2980b9"><span>Flask</span></div>
                             <div class="skillbar-bar" style="background: #3498db;"></div>
-                        </div> <!-- End Skill Bar -->
+                        </div>
 
                         <div class="skillbar clearfix " data-percent="70%">
                             <div class="skillbar-title" style="background: #2980b9"><span>React</span></div>
                             <div class="skillbar-bar" style="background: #3498db"></div>
-                        </div> <!-- End Skill Bar -->
+                        </div>
+                    </div>
+
+                    <div class="skill-charts" id="skill-charts">
+                        <div class="skill-chart-card">
+                            <h4 class="skill-chart-title" data-i18n="skills-chart-radar-title">Skill Coverage Radar</h4>
+                            <p class="skill-chart-subtitle" data-i18n="skills-chart-radar-desc">Balance between backend, frontend, DevOps and collaboration.</p>
+                            <canvas id="skill-radar-chart" role="img" aria-label="Skill coverage radar"></canvas>
+                        </div>
+                        <div class="skill-chart-card">
+                            <h4 class="skill-chart-title" data-i18n="skills-chart-pie-title">Time Allocation by Stack</h4>
+                            <p class="skill-chart-subtitle" data-i18n="skills-chart-pie-desc">Weekly focus dedicated to each stack.</p>
+                            <canvas id="skill-pie-chart" role="img" aria-label="Time allocation pie chart"></canvas>
+                        </div>
+                        <div class="skill-chart-card">
+                            <h4 class="skill-chart-title" data-i18n="skills-chart-bar-title">Projects by Language</h4>
+                            <p class="skill-chart-subtitle" data-i18n="skills-chart-bar-desc">Portfolio distribution per technology.</p>
+                            <canvas id="skill-bar-chart" role="img" aria-label="Projects by language bar chart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>

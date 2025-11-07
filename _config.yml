@@ -1,5 +1,5 @@
 title: Jadson de Sousa Mattos
-description: Developer FullStack
+description: Backend Developer | Java • Node.js • Python
 site_title: ''
 
 # Build settings
@@ -18,5 +18,7 @@ linkedin_username: jadsonmattos
 # absolute or relative
 profile_picture: assets/images/android512.png
 
-# Google Analytics ID
+# Google Analytics ID (exemplo: G-XXXXXXXXXX ou UA-XXXXXXXXX-X)
+# Para ativar, adicione seu ID abaixo (descomente e adicione o ID)
+# google_analytics: G-XXXXXXXXXX
 google_analytics: 

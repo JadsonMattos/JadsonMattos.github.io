@@ -1,8 +1,67 @@
 <div class="section-wrapper">
     <section class="section" id="blog-posts">
         <div class="full-width">
-            <div class="section-heading" id="recent-posts-text">Blog</div>
-            <div class="blogs-wrapper" id="rss-feeds"></div>
+            <div class="section-heading" id="recent-posts-text" data-i18n="services-title">Services & Contact</div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p class="paragraph-text center-align" style="margin-bottom: 40px;" data-i18n="services-subtitle">
+                    I offer professional web development for companies and personal projects
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                    
+                    <div class="blog-post" style="cursor: default;">
+                        <div class="blog-link">
+                            <h3 style="color: #2980b9;" data-i18n="service-backend-title">⚙️ Backend Development</h3>
+                            <p style="font-size: 0.9rem; margin: 10px 0;" data-i18n="service-backend-desc">
+                                Robust RESTful APIs with Java Spring Boot, Node.js, or Python
+                            </p>
+                            <small style="color: #666;" data-i18n="service-backend-time">Timeline: 2-4 weeks</small>
+                        </div>
+                    </div>
+
+                    <div class="blog-post" style="cursor: default;">
+                        <div class="blog-link">
+                            <h3 style="color: #2980b9;" data-i18n="service-frontend-title">🎨 Frontend Development</h3>
+                            <p style="font-size: 0.9rem; margin: 10px 0;" data-i18n="service-frontend-desc">
+                                Modern interfaces with React, TypeScript, and responsive design
+                            </p>
+                            <small style="color: #666;" data-i18n="service-frontend-time">Timeline: 1-3 weeks</small>
+                        </div>
+                    </div>
+
+                    <div class="blog-post" style="cursor: default;">
+                        <div class="blog-link">
+                            <h3 style="color: #2980b9;" data-i18n="service-fullstack-title">🚀 Full Stack Projects</h3>
+                            <p style="font-size: 0.9rem; margin: 10px 0;" data-i18n="service-fullstack-desc">
+                                Complete applications from scratch to deployment
+                            </p>
+                            <small style="color: #666;" data-i18n="service-fullstack-time">Timeline: 4-8 weeks</small>
+                        </div>
+                    </div>
+
+                    <div class="blog-post" style="cursor: default;">
+                        <div class="blog-link">
+                            <h3 style="color: #2980b9;" data-i18n="service-integration-title">🔧 Integrations & APIs</h3>
+                            <p style="font-size: 0.9rem; margin: 10px 0;" data-i18n="service-integration-desc">
+                                System integration, microservices, and automation
+                            </p>
+                            <small style="color: #666;" data-i18n="service-integration-time">Timeline: 1-2 weeks</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="blog-post more-blogs" onclick="window.open('https://seu-formulario.vercel.app', '_blank')" style="cursor: pointer;">
+                    <div class="blog-link">
+                        <h3><a href="https://seu-formulario.vercel.app" target="_blank" style="color: white;" data-i18n="service-cta">📝 Request Detailed Quote</a></h3>
+                    </div>
+                    <div class="blog-goto-link">
+                        <img class="blog-arrow" src="/assets/images/right-open-mini.svg" alt="arrow"/>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 </div>

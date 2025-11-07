@@ -33,9 +33,15 @@
  */
 
 .card {
-	background-color: #fff;
+	background-color: var(--card-bg, #fff);
 	margin-bottom: 1.6rem;
 	box-shadow: -4px 8px 16px 0 rgba(0, 0, 0, 0.24);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+	transform: translateY(-4px);
+	box-shadow: -4px 12px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .card__padding {
@@ -81,7 +87,7 @@
 	border-radius: 2px;
 	display: grid;
 	grid-template-columns: auto 50px;
-	background-color: #fff;
+	background-color: var(--card-bg, #fff);
 	margin-bottom: 1.6rem;
 	box-shadow: -4px 8px 16px 0 rgba(0, 0, 0, 0.24);
 }
@@ -147,4 +153,15 @@
 #project-image:focus,
 #project-image:hover {
 	transform: scale(1.1);
+}
+
+/* Lightbox - Image clickable styling */
+.project-card img {
+    cursor: zoom-in;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

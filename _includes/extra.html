@@ -1,41 +1,103 @@
 <div class="section-wrapper">
     <section class="section extra" id="extra">
         <div>
-            <div class="section-heading" id="chat-text">Contact</div>
-            <p class="paragraph-text justify-text">
-                Eu adoraria ouvir de você! Estou aberto a colaborações, especialmente em projetos de código aberto. Oportunidade de trabalho interessante? Ou quer conversar? Contate-me!
+            <div class="section-heading" id="chat-text" data-i18n="contact-title">Contact</div>
+            <p class="paragraph-text center-align" data-i18n="contact-intro">
+                I'd love to hear from you! I'm open to collaborations, especially on open source projects. Interesting job opportunity? Or want to chat? Contact me!
             </p>
-            <p class="paragraph-text justify-text">
-                Fique à vontade para me escrever sobre qualquer coisa: <a href="mailto:{{ site.email }}">{{ site.email }}</a>. Responderei em breve.
-            </p>
-            <p class="paragraph-text justify-text">
-                Meu currículo está disponível aqui: <a href="assets/Curriculo.pdf">PDF</a>, <a href="assets/Curriculo.docx">DOC</a>
-            </p>
-            <div class="extra-links">
-                <span class="hint--bottom bottom-link" aria-label="Email">
-                    <a href="mailto:{{ site.email }}"><i class="head-icon fas fa-envelope"></i></a>
-                </span>
-                <!-- <span class="hint--bottom bottom-link" aria-label="PGP Key">
-                    <a href="#"><i class="head-icon fas fa-key"></i></a>
-                </span> -->
-                <span class="hint--bottom bottom-link" aria-label="GitHub">
-                    <a href="https://github.com/{{ site.github_username }}"><i class="head-icon fab fa-github"></i></a>
-                </span>
-                <!-- <span class="hint--bottom bottom-link" aria-label="Web Blog">
-                    <a href="#"><i class="head-icon fas fa-rss"></i></a>
-                </span> -->
-                <span class="hint--bottom bottom-link" aria-label="Linkedin">
-                    <a href="https://linkedin.com/in/jadsonmattos"><i class="head-icon fab fa-linkedin"></i></a>
-                </span>
-                <!-- <span class="hint--bottom bottom-link" aria-label="Keybase">
-                    <a href="#"><i class="head-icon fab fa-keybase"></i></a>
-                </span> -->
-                <!-- <span class="hint--bottom bottom-link" aria-label="Reddit">
-                    <a href="https://www.reddit.com/u/{{ site.reddit_username }}"><i class="head-icon fab fa-reddit"></i></a>
-                </span>
-                <span class="hint--bottom bottom-link" aria-label="Twitter">
-                    <a href="https://twitter.com/{{ site.twitter_username }}"><i class="head-icon fab fa-twitter"></i></a>
-                </span> -->
+
+            <div class="contact-wrapper">
+                <div class="contact-info-card">
+                    <p class="paragraph-text">
+                        <span data-i18n="contact-email">Feel free to write to me about anything: </span>
+                        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+                        <span data-i18n="contact-email-suffix">. I'll respond soon.</span>
+                    </p>
+                    <p class="paragraph-text">
+                        <span data-i18n="contact-resume">My resume is available here: </span>
+                        <a href="assets/Curriculo.pdf"><span data-i18n="contact-resume-pdf">PDF</span></a>,
+                        <a href="assets/Curriculo.docx"><span data-i18n="contact-resume-doc">DOC</span></a>
+                    </p>
+
+                    <div class="contact-fast-facts">
+                        <div>
+                            <strong data-i18n="contact-response-time-label">Average response time</strong>
+                            <span data-i18n="contact-response-time-value">Under 24 hours</span>
+                        </div>
+                        <div>
+                            <strong data-i18n="contact-availability-label">Availability</strong>
+                            <span data-i18n="contact-availability-value">Open for new freelance projects</span>
+                        </div>
+                    </div>
+
+                    <div class="extra-links">
+                        <span class="hint--bottom bottom-link" aria-label="Email">
+                            <a href="mailto:{{ site.email }}"><i class="head-icon fas fa-envelope"></i></a>
+                        </span>
+                        <span class="hint--bottom bottom-link" aria-label="GitHub">
+                            <a href="https://github.com/{{ site.github_username }}"><i class="head-icon fab fa-github"></i></a>
+                        </span>
+                        <span class="hint--bottom bottom-link" aria-label="Linkedin">
+                            <a href="https://linkedin.com/in/jadsonmattos"><i class="head-icon fab fa-linkedin"></i></a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <h3 class="contact-form-title" data-i18n="contact-form-title">Start a project</h3>
+                    <p class="contact-form-subtitle" data-i18n="contact-form-subtitle">
+                        Fill the form and I’ll get back to you in less than 24 hours.
+                    </p>
+
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="hidden" name="_subject" value="New contact via portfolio" />
+                        <input type="hidden" name="language" id="contact-language" value="en" />
+
+                        <div class="contact-grid">
+                            <label class="contact-field">
+                                <span data-i18n="contact-form-name">Name</span>
+                                <input type="text" name="name" required data-i18n-placeholder="contact-form-name-placeholder" placeholder="Your name" autocomplete="name" />
+                            </label>
+
+                            <label class="contact-field">
+                                <span data-i18n="contact-form-email">Email</span>
+                                <input type="email" name="email" required data-i18n-placeholder="contact-form-email-placeholder" placeholder="name@email.com" autocomplete="email" />
+                            </label>
+
+                            <label class="contact-field">
+                                <span data-i18n="contact-form-phone">Phone / WhatsApp</span>
+                                <input type="tel" name="phone" data-i18n-placeholder="contact-form-phone-placeholder" placeholder="+55 (48) 90000-0000" autocomplete="tel" />
+                            </label>
+
+                            <label class="contact-field">
+                                <span data-i18n="contact-form-budget">Budget</span>
+                                <select name="budget" required>
+                                    <option value="" disabled selected data-i18n="contact-form-budget-placeholder">Select an option</option>
+                                    <option value="under-5k" data-i18n="contact-form-budget-option-1">Up to R$5k</option>
+                                    <option value="5k-10k" data-i18n="contact-form-budget-option-2">R$5k - R$10k</option>
+                                    <option value="10k-20k" data-i18n="contact-form-budget-option-3">R$10k - R$20k</option>
+                                    <option value="over-20k" data-i18n="contact-form-budget-option-4">Above R$20k</option>
+                                    <option value="not-sure" data-i18n="contact-form-budget-option-5">I’m not sure yet</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <label class="contact-field contact-field--full">
+                            <span data-i18n="contact-form-message">Project details</span>
+                            <textarea name="message" rows="4" required data-i18n-placeholder="contact-form-message-placeholder" placeholder="Describe your project, timeline and goals"></textarea>
+                        </label>
+
+                        <button type="submit" class="contact-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-i18n="contact-form-submit">Send Message</span>
+                        </button>
+
+                        <p class="contact-feedback" id="contact-feedback" aria-live="polite"></p>
+                        <small class="contact-privacy" data-i18n="contact-form-privacy">
+                            By submitting you agree to be contacted via email or WhatsApp for this request.
+                        </small>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

@@ -3,21 +3,39 @@
     
     {% include head.html %}
 
-<body>
+<body data-github-username="{{ site.github_username }}">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">LOADING...</div>
+    </div>
 
     {% include nav.html %}
 
     {% include about.html %}
+    
+    {% include metrics.html %}
+    
+    {% include timeline.html %}
 
     {% include skills.html %}
 
     {% include projects.html %}
 
     {% include blogs.html %}
+    
+    {% include process.html %}
+    
+    {% include faq.html %}
         
     {% include extra.html %}
 
     {% include footer.html %}
+
+    <button class="sticky-cta" id="sticky-cta" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jadson-sousamattos/30min'}); return false;">
+        <i class="fas fa-calendar-check"></i>
+        <span data-i18n="sticky-cta-text">📅 Schedule Free Meeting</span>
+    </button>
 
     {% include scripts.html %}
 </body>

@@ -1,13 +1,23 @@
-$(document).ready(() => {
+// Vanilla JS - Substitui jQuery mantendo comportamento original
+document.addEventListener('DOMContentLoaded', function() {
     render_projects('featured');
-})
-
+});
 
 let render_projects = (slug) => {
-    let projects_area = $('.projects-wrapper');
+    let projects_area = document.querySelector('.projects-wrapper');
+    
+    if (!projects_area) return;
 
-    $('.white-button').removeClass('white-button-hover');
-    $(`#${slug}`).addClass('white-button-hover');
+    // Remover classe hover de todos os botões
+    document.querySelectorAll('.white-button').forEach(btn => {
+        btn.classList.remove('white-button-hover');
+    });
+    
+    // Adicionar classe hover no botão clicado
+    const activeButton = document.getElementById(slug);
+    if (activeButton) {
+        activeButton.classList.add('white-button-hover');
+    }
 
     let projects_obj = [
         {
@@ -15,35 +25,35 @@ let render_projects = (slug) => {
             link: 'https://github.com/JadsonMattos/LessonsLearned',
             title: 'Lessons Learned',
             demo: 'https://jadsonmattos.github.io/LessonsLearned',
-            technologies: ['HTML', 'CSS', 'JavaScript'],
-            description: "Desenvolvimento de uma página HTML estilizada com CSS. Através desta aplicação, será possível realizar a construção de código HTML, posicionamento e estilização CSS.",
+            technologies: ['HTML5', 'CSS3', 'JavaScript'],
+            description: "✨ Responsive web page with semantic HTML5 and modern CSS3. Demonstrates clean code structure, CSS positioning techniques, and responsive design principles.",
             categories: ['featured', 'fundamentos']
         },
         {
             image: 'assets/images/calendar.png',
             link: 'https://github.com/JadsonMattos/Tryber-Calendar',
-            title: 'Calendário - Modelo',
+            title: 'Interactive Calendar',
             demo: 'https://jadsonmattos.github.io/Tryber-Calendar',
-            technologies: ['HTML', 'CSS', 'JavaScript'],
-            description: "Nesse calendário, você vai poder adicionar feriados e compromissos, além de adicionar as tarefas que você precisa realizar!.",
+            technologies: ['JavaScript', 'DOM', 'Events'],
+            description: "📅 Dynamic calendar application with task management. Features: Event handling, DOM manipulation, data persistence with LocalStorage, and interactive UI components.",
             categories: ['featured', 'fundamentos']
         },
         {
             image: 'assets/images/paleta.png',
             link: 'https://github.com/JadsonMattos/Pixel-Arts',
-            title: 'Pixel Arts',
+            title: 'Pixel Art Editor',
             demo: 'https://jadsonmattos.github.io/Pixel-Arts',
-            technologies: ['HTML', 'CSS', 'JavaScript'],
-            description: "Paleta de cores.",
+            technologies: ['JavaScript', 'Canvas', 'CSS Grid'],
+            description: "🎨 Interactive pixel art editor with color palette management. Implements dynamic grid generation, event listeners, and real-time canvas rendering.",
             categories: ['featured', 'fundamentos']
         },
         {
             image: 'assets/images/todo.png',
             link: 'https://github.com/JadsonMattos/Todo-List',
-            title: 'Todo List',
+            title: 'Task Manager',
             demo: 'https://jadsonmattos.github.io/Todo-List',
-            technologies: ['HTML', 'CSS', 'JavaScript'],
-            description: "Lista de tarefas usando HTML, CSS e JavaScript.",
+            technologies: ['JavaScript', 'LocalStorage', 'CRUD'],
+            description: "✅ Full-featured task management app. Implements CRUD operations, data persistence, filtering, and state management with vanilla JavaScript.",
             categories: ['featured', 'fundamentos']
         },
         {
@@ -172,7 +182,18 @@ let render_projects = (slug) => {
     else {
         projects = projects_obj.filter(project => project.categories.includes(slug)).map(project_mapper);
     }
-    projects_area.hide().html(projects).fadeIn();
+    
+    // Vanilla JS substituindo jQuery hide().html().fadeIn()
+    projects_area.style.display = 'none';
+    projects_area.innerHTML = projects.join('');
+    
+    // Fade in effect
+    projects_area.style.display = '';
+    projects_area.style.opacity = '0';
+    setTimeout(function() {
+        projects_area.style.transition = 'opacity 0.4s';
+        projects_area.style.opacity = '1';
+    }, 10);
 }
 
 let project_mapper = project => {

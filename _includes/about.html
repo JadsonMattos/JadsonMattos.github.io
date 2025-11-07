@@ -1,17 +1,51 @@
 <div class="section-wrapper">
     <section class="section about" id="about">
+        <!-- Particles.js Background -->
+        <div id="particles-js"></div>
+        
         <div id="about-text">
-            <div class="section-heading">Sobre</div>
-            <p class="paragraph-text justify-text">
-                Olá! 👋 Sou um entusiasta da tecnologia em transição de carreira para o desenvolvimento de software. Atualmente, estou cursando Ciência da Computação e aprimorando minhas habilidades na Trybe, uma escola que me proporciona uma visão completa do desenvolvimento web.
-                Ao longo da minha jornada, desenvolvi projetos abrangentes, desde aplicações interativas com React até a construção de APIs robustas com Node.js. Estou focado em aprimorar minhas habilidades em JavaScript, React, TypeScript e Python.
+            <div class="section-heading" data-i18n="about-title">Hello, I'm Jadson 👋</div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <span style="display: inline-block; background: #27ae60; color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 0.9rem;" data-i18n="availability-badge">
+                    🟢 Available for new projects
+                </span>
+            </div>
+
+            <p class="paragraph-text justify-text" data-i18n="about-intro">
+                <strong>Backend Developer specialized in creating robust APIs and scalable solutions.</strong>
+                Currently developing systems with Java (Spring Boot) and Node.js (NestJS) at Horizon,
+                plus volunteer and freelance projects.
             </p>
-            <p class="paragraph-text justify-text">
-                Engajado em cursos como Ciência da Computação de Harvard e prático na abordagem da Trybe, busco constantemente aprender e crescer. Minha versatilidade me permite adaptar-me a novos desafios e tecnologias.
+
+            <p class="paragraph-text justify-text" data-i18n="about-what-i-do">
+                <strong>💼 What I do:</strong><br>
+                • Development of RESTful APIs with Java Spring Boot, Node.js, and Python<br>
+                • Microservices architecture and system integration<br>
+                • Full Stack applications with React, TypeScript, and SQL/NoSQL databases<br>
+                • Automation, tests (TDD), and best practices (SOLID, Clean Code)
             </p>
-            <p class="paragraph-text justify-text">
-                Eu posto meus projetos de software em <a href="https://github.com/{{ site.github_username }}">GitHub</a>. Meu endereço de email para contatos pode ser encontrado <span class="extra-link"><a href="#extra">logo abaixo</a></span> desta página.
+
+            <p class="paragraph-text justify-text" data-i18n="about-stack">
+                <strong>🚀 Main Stack:</strong> Java • Spring Boot • Node.js • NestJS • TypeScript • Python • React • PostgreSQL • MongoDB • Docker
             </p>
+
+            <p class="paragraph-text justify-text" data-i18n="about-experience">
+                <strong>📊 Experience:</strong> Professional Backend Developer, +16 projects on <a href="https://github.com/{{ site.github_username }}">GitHub</a>, 
+                working with agile methodologies and delivering real solutions.
+            </p>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://wa.me/5548996122449" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer;">
+                    <span data-i18n="cta-whatsapp">💬 Chat on WhatsApp</span>
+                </a>
+                <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jadson-sousamattos/30min'});return false;" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 5px; box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4); cursor: pointer;">
+                    <span data-i18n="cta-calendly">📅 Schedule Meeting</span>
+                </a>
+                <a href="https://seu-formulario.vercel.app" target="_blank" style="display: inline-block; background: #2980b9; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer;">
+                    <span data-i18n="cta-quote">📝 Request Quote</span>
+                </a>
+            </div>
         </div>
     </section>
 </div>

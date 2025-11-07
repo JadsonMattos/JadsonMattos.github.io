@@ -1,0 +1,109 @@
+<div class="section-wrapper">
+    <section class="section" id="faq">
+        <div class="full-width" style="max-width: 800px;">
+            <div class="section-heading" data-i18n="faq-title">Frequently Asked Questions</div>
+            
+            <p class="paragraph-text center-align" style="margin-bottom: 40px;" data-i18n="faq-subtitle">
+                Common questions about working together
+            </p>
+
+            <div class="faq-container" style="display: flex; flex-direction: column; gap: 15px;">
+                
+                <div class="faq-item" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; transition: all 0.3s;" onclick="toggleFAQ(this)">
+                        <h4 style="color: #2c3e50; margin: 0; flex: 1;" data-i18n="faq-q1">
+                            ❓ How long does a typical project take?
+                        </h4>
+                        <i class="fas fa-chevron-down" style="color: #3498db; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="padding: 20px; margin: 0; color: #555;" data-i18n="faq-a1">
+                            It depends on the complexity. Small projects (landing pages, simple apps): 1-2 weeks. Medium projects (full web apps): 4-6 weeks. Large projects (complex systems): 8-12 weeks.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; transition: all 0.3s;" onclick="toggleFAQ(this)">
+                        <h4 style="color: #2c3e50; margin: 0; flex: 1;" data-i18n="faq-q2">
+                            💰 How does payment work?
+                        </h4>
+                        <i class="fas fa-chevron-down" style="color: #3498db; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="padding: 20px; margin: 0; color: #555;" data-i18n="faq-a2">
+                            Typically 50% upfront to start the project and 50% upon final delivery. For longer projects, we can split into milestones. Payment via bank transfer or PIX.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; transition: all 0.3s;" onclick="toggleFAQ(this)">
+                        <h4 style="color: #2c3e50; margin: 0; flex: 1;" data-i18n="faq-q3">
+                            🛠️ Do you offer post-delivery support?
+                        </h4>
+                        <i class="fas fa-chevron-down" style="color: #3498db; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="padding: 20px; margin: 0; color: #555;" data-i18n="faq-a3">
+                            Yes! All projects include 30 days of free support for bug fixes. Ongoing maintenance and new features can be arranged separately.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; transition: all 0.3s;" onclick="toggleFAQ(this)">
+                        <h4 style="color: #2c3e50; margin: 0; flex: 1;" data-i18n="faq-q4">
+                            📞 How do we communicate during the project?
+                        </h4>
+                        <i class="fas fa-chevron-down" style="color: #3498db; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="padding: 20px; margin: 0; color: #555;" data-i18n="faq-a4">
+                            WhatsApp for quick questions, email for detailed discussions, and weekly video calls to review progress. I'm available during business hours (9am-6pm BRT) and respond within 24 hours.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; transition: all 0.3s;" onclick="toggleFAQ(this)">
+                        <h4 style="color: #2c3e50; margin: 0; flex: 1;" data-i18n="faq-q5">
+                            🔄 Can I request changes during development?
+                        </h4>
+                        <i class="fas fa-chevron-down" style="color: #3498db; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="padding: 20px; margin: 0; color: #555;" data-i18n="faq-a5">
+                            Absolutely! I work with agile sprints and weekly demos. Feedback is encouraged and adjustments are part of the process. Major scope changes may affect timeline and budget.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; transition: all 0.3s;" onclick="toggleFAQ(this)">
+                        <h4 style="color: #2c3e50; margin: 0; flex: 1;" data-i18n="faq-q6">
+                            📋 What do I need to provide to get started?
+                        </h4>
+                        <i class="fas fa-chevron-down" style="color: #3498db; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="padding: 20px; margin: 0; color: #555;" data-i18n="faq-a6">
+                            A clear description of what you need, any design references or mockups (if available), content (text, images), and login credentials for any existing systems. Don't worry if you don't have everything—I'll help you figure it out during the briefing!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 8px;">
+                <h4 style="margin: 0 0 15px 0;" data-i18n="faq-more-questions">Still have questions?</h4>
+                <a href="https://wa.me/5548996122449?text=Hi!%20I%20have%20a%20question%20about..." target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                    <span data-i18n="faq-contact">💬 Ask me directly on WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
