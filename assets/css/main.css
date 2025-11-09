@@ -1,3 +1,8 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 /* Scroll Animations */
 .fade-in-section {
     opacity: 0;
@@ -938,12 +943,13 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  min-width: 360px;
+  min-width: 0;
   font-family: 'PT Sans', sans-serif;
   font-size: 16px;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
 img {
   max-width: 100%;
@@ -1123,6 +1129,7 @@ img {
   box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  max-width: calc(100vw - 40px);
 }
 
 .presentation-toggle:hover {
@@ -1135,7 +1142,8 @@ img {
 }
 
 .presentation-toggle span {
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
 }
 
 body.presentation-mode-active {
@@ -2031,6 +2039,7 @@ a {
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.28);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: calc(100vw - 40px);
 }
 
 .focus-toggle:hover {
@@ -2042,12 +2051,18 @@ a {
   font-size: 1rem;
 }
 
+@media (max-width: 900px) {
+  .focus-toggle {
+    right: 24px;
+  }
+}
+
 @media (max-width: 600px) {
   .focus-toggle {
     top: 68px;
-    right: 20px;
+    right: 16px;
     font-size: 0.85rem;
-    padding: 8px 14px;
+    padding: 8px 12px;
   }
 }
 
@@ -2077,6 +2092,7 @@ body.focus-mode .focus-toggle {
   cursor: pointer;
   backdrop-filter: blur(6px);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: calc(100vw - 40px);
 }
 
 .music-toggle:hover {
@@ -2099,6 +2115,42 @@ body.focus-mode .focus-toggle {
 
 body.focus-mode .music-toggle {
   display: none !important;
+}
+
+.language-toggle {
+  max-width: calc(100vw - 32px) !important;
+}
+
+@media (max-width: 520px) {
+  .presentation-toggle,
+  .focus-toggle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    padding: 12px;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .presentation-toggle span,
+  .focus-toggle span {
+    display: none;
+  }
+
+  .presentation-toggle i,
+  .focus-toggle i {
+    font-size: 1.15rem;
+  }
+
+  .presentation-toggle {
+    top: 124px;
+    right: 18px;
+  }
+
+  .focus-toggle {
+    top: 70px;
+    right: 18px;
+  }
 }
 
 body.focus-mode .language-toggle,
