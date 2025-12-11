@@ -1,16 +1,54 @@
-
-<section class="head" id="nav">
-    <div class="head-inner-wrap">
-        <div class="profile-pic-div animated">
-            <a href="#about" class="profile-pic-link"><img src="{{ site.profile_picture }}" class="profile-pic"/></a>
+<!-- Top Navigation Bar -->
+<nav class="top-navbar" id="top-navbar">
+    <div class="nav-container">
+        <a href="#nav" class="nav-logo">
+            <span data-i18n="nav-logo">JM</span>
+        </a>
+        <div class="nav-menu">
+            <a class="nav-link" href="#about" data-i18n="nav-about">About</a>
+            <a class="nav-link" href="#skills" data-i18n="nav-skills">Skills</a>
+            <a class="nav-link" href="#projects" data-i18n="nav-projects">Projects</a>
+            <a class="nav-link" href="#blog-posts" data-i18n="nav-services">Services</a>
+            <a class="nav-link nav-cta" href="#blog-posts" data-i18n="nav-contact">Get in touch</a>
         </div>
-        <div class="head-name head-title animated" id="head-name" data-i18n="hero-title">Jadson de Sousa Mattos</div>
-        <div class="head-punchline animated" data-i18n="hero-subtitle">Backend Developer | Java • Node.js • Python</div>
-        <div class="head-menu-wrap">
-            <a class="semi-transparent-button with-border nav-links" href="#about"><span data-i18n="nav-about">ABOUT</span></a>
-            <a class="semi-transparent-button with-border nav-links" href="#skills"><span data-i18n="nav-skills">SKILLS</span></a>
-            <a class="semi-transparent-button with-border nav-links" href="#projects"><span data-i18n="nav-projects">PROJECTS</span></a>
-            <a class="semi-transparent-button with-border nav-links" href="#blog-posts"><span data-i18n="nav-services">SERVICES</span></a>
+        <div class="nav-actions">
+            <a href="https://wa.me/5548996122449" target="_blank" class="whatsapp-button" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="head" id="nav">
+    <!-- Decorative Background Shapes -->
+    <div class="hero-background-shapes">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+    </div>
+    <div class="head-inner-wrap">
+        <div class="hero-content">
+            <div class="profile-pic-div animated">
+                <a href="#about" class="profile-pic-link"><img src="{{ site.profile_picture }}" class="profile-pic"/></a>
+            </div>
+            <h1 class="head-title animated" id="head-name">
+                <span class="hero-title-visible" data-i18n="hero-title-short">I'm a <span class="highlight">fullstack developer</span> in <span class="highlight">Brazil</span></span>...
+                <span class="hero-title-expandable" style="display: none;" data-i18n="hero-title-expandable"> with a strong <span class="highlight">backend focus</span> building end-to-end solutions across <span class="highlight">web and mobile</span>. Passionate about emerging technologies: <span class="highlight">AI, blockchain, automation, SaaS, and scalability</span>.</span>
+                <button class="hero-title-toggle" aria-label="Expand description">▼</button>
+            </h1>
+            <p class="head-punchline animated" data-i18n="hero-subtitle">Java • Spring Boot • Node.js • NestJS • Python • TypeScript • React • Next.js • Mobile</p>
+            <div class="hero-scroll-indicator">
+                <span data-i18n="hero-scroll">Scroll down</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </div>
         </div>
     </div>
 </section>

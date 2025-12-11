@@ -25,24 +25,136 @@ function ensureEmailJSInitialized() {
     return true;
 }
 
+// Hero Title Expandable
+function initHeroTitleToggle() {
+    const toggleBtn = document.querySelector('.hero-title-toggle');
+    const expandableText = document.querySelector('.hero-title-expandable');
+    
+    if (!toggleBtn || !expandableText) return;
+    
+    let isExpanded = false;
+    
+    toggleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        isExpanded = !isExpanded;
+        
+        if (isExpanded) {
+            expandableText.style.display = 'inline';
+            toggleBtn.textContent = '▲';
+            toggleBtn.setAttribute('aria-label', 'Collapse description');
+        } else {
+            expandableText.style.display = 'none';
+            toggleBtn.textContent = '▼';
+            toggleBtn.setAttribute('aria-label', 'Expand description');
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    initFocusMode();
-    general_utils();
-    initScrollAnimations();
-    initCounterAnimations();
-    initLightbox();
-    initBackToTop();
-    initStickyCTA();
-    initContactForm();
-    initSkillCharts();
-    initPresentationMode();
-    initMusicPlayer();
-    initEasterEggs();
-    initGitHubStats();
+    try {
+        initMobileNavigation();
+        initHeroTitleToggle();
+        // Focus mode removed
+        general_utils();
+        initScrollAnimations();
+        initCounterAnimations();
+        initLightbox();
+        initBackToTop();
+        initStickyCTA();
+        initContactForm();
+        initSkillCharts();
+        initPresentationMode();
+        // Music player removed - WhatsApp button added instead
+        initEasterEggs();
+        initGitHubStats();
+    } catch (error) {
+        console.error('Error initializing:', error);
+        // Ensure loading screen is hidden even if there's an error
+        hideLoadingScreen();
+    }
 });
 
-// Hide loading screen when page fully loads
-window.addEventListener('load', function() {
+// Mobile Navigation Toggle
+function initMobileNavigation() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+    
+    // Smooth scroll for navigation links
+    const allNavLinks = document.querySelectorAll('a[href^="#"]');
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.length > 1) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offsetTop = target.offsetTop - 72; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+    
+    // Navbar scroll effect
+    let lastScroll = 0;
+    const navbar = document.getElementById('top-navbar');
+    if (navbar) {
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+            lastScroll = currentScroll;
+        });
+    }
+    
+    // Hero scroll indicator click handler
+    const scrollIndicator = document.querySelector('.hero-scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                const offsetTop = aboutSection.offsetTop - 72; // Account for fixed navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+}
+
+// Hide loading screen - with fallback
+function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
         loadingScreen.classList.add('fade-out');
@@ -50,17 +162,34 @@ window.addEventListener('load', function() {
             loadingScreen.style.display = 'none';
         }, 500);
     }
+}
+
+// Hide loading screen when page fully loads
+window.addEventListener('load', function() {
+    hideLoadingScreen();
     
-    // Register Service Worker for PWA
+    // Register Service Worker for PWA (with error handling)
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js')
             .then(function(registration) {
                 console.log('Service Worker registrado com sucesso:', registration.scope);
             })
             .catch(function(error) {
-                console.log('Falha ao registrar Service Worker:', error);
+                console.log('Service Worker registration failed:', error);
             });
     }
+});
+
+// Fallback: Remove loading screen after 2 seconds maximum (safety net)
+setTimeout(function() {
+    hideLoadingScreen();
+}, 2000);
+
+// Also hide on DOMContentLoaded as backup
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        hideLoadingScreen();
+    }, 1500);
 });
 
 // FAQ Accordion Toggle
@@ -922,46 +1051,7 @@ function smoothScrollInit() {
 
 // Funções blog removidas - Seção transformada em Serviços (HTML estático)
 
-// WhatsApp Floating Button
-(function initWhatsAppButton() {
-    const whatsappBtn = document.createElement('a');
-    whatsappBtn.href = 'https://wa.me/5548996122449?text=Hi!%20I%27d%20like%20to%20discuss%20a%20project';
-    whatsappBtn.target = '_blank';
-    whatsappBtn.className = 'whatsapp-float';
-    whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
-    whatsappBtn.setAttribute('aria-label', 'Chat on WhatsApp');
-    
-    whatsappBtn.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        left: 30px;
-        z-index: 1000;
-        width: 60px;
-        height: 60px;
-        background: #25D366;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        transition: all 0.3s;
-        text-decoration: none;
-    `;
-    
-    whatsappBtn.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.1)';
-        this.style.boxShadow = '0 6px 16px rgba(37, 211, 102, 0.5)';
-    });
-    
-    whatsappBtn.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-        this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
-    });
-    
-    document.body.appendChild(whatsappBtn);
-})();
+// WhatsApp Floating Button removed - only keeping the one in top navigation
 
 // Dark Mode Toggle
 (function initDarkMode() {
@@ -1686,217 +1776,10 @@ function applyCustomCursorEnhancements(scope) {
     });
 }
 
-const focusModeState = {
-    enabled: false,
-    button: null,
-    label: null
-};
+// Focus mode removed - no longer needed
 
-const musicState = {
-    enabled: false,
-    audio: null,
-    button: null,
-    label: null,
-    wasEnabledBeforeFocus: false,
-    isAttemptingPlay: false
-};
+// Music player removed - WhatsApp button added instead
 
-function initFocusMode() {
-    if (focusModeState.button) {
-        // Already initialized
-        return;
-    }
+// Focus mode functions completely removed
 
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'focus-toggle';
-    btn.innerHTML = '<i class="fas fa-book-reader"></i><span></span>';
-    btn.setAttribute('aria-pressed', 'false');
-    btn.addEventListener('click', function() {
-        setFocusMode(!focusModeState.enabled);
-    });
-
-    document.body.appendChild(btn);
-    focusModeState.button = btn;
-    focusModeState.label = btn.querySelector('span');
-
-    const saved = localStorage.getItem('focusMode') === 'true';
-    setFocusMode(saved, { skipStorage: true });
-
-    if (!window.updateFocusModeLanguage) {
-        window.updateFocusModeLanguage = function(lang) {
-            updateFocusModeLabel(lang);
-        };
-    }
-
-    const initialLang = window.currentLanguage || localStorage.getItem('language') || 'en';
-    updateFocusModeLabel(initialLang);
-}
-
-function setFocusMode(enabled, options) {
-    if (!focusModeState.button) {
-        return;
-    }
-
-    const shouldEnable = Boolean(enabled);
-    const wasEnabled = focusModeState.enabled;
-    focusModeState.enabled = shouldEnable;
-    focusModeState.button.setAttribute('aria-pressed', shouldEnable ? 'true' : 'false');
-    document.body.classList.toggle('focus-mode', shouldEnable);
-
-    const particles = document.getElementById('particles-js');
-    if (particles) {
-        particles.style.display = shouldEnable ? 'none' : '';
-    }
-
-    if (shouldEnable) {
-        if (!wasEnabled && musicState.enabled) {
-            musicState.wasEnabledBeforeFocus = true;
-            setMusicEnabled(false, { skipStorage: true });
-        } else {
-            musicState.wasEnabledBeforeFocus = false;
-        }
-        // Close overlays or mini games that add distractions
-        const miniGame = document.querySelector('.mini-game-overlay');
-        if (miniGame) {
-            const closeBtn = miniGame.querySelector('.mini-game-close');
-            if (closeBtn) {
-                closeBtn.click();
-            } else {
-                miniGame.remove();
-                document.body.classList.remove('mini-game-active');
-                if (window.easterEggState) {
-                    window.easterEggState.miniGameActive = false;
-                }
-            }
-        }
-
-        const confetti = document.querySelectorAll('.konami-confetti-container, .konami-banner');
-        confetti.forEach(el => el.remove());
-        document.body.classList.remove('konami-activated');
-
-        const sections = document.querySelectorAll('.section, .animated');
-        sections.forEach(el => {
-            el.classList.add('focus-visible');
-        });
-    } else {
-        if (wasEnabled && musicState.wasEnabledBeforeFocus) {
-            setMusicEnabled(true, { skipStorage: true });
-            musicState.wasEnabledBeforeFocus = false;
-        }
-        document.querySelectorAll('.focus-visible').forEach(el => el.classList.remove('focus-visible'));
-    }
-
-    if (!options || !options.skipStorage) {
-        localStorage.setItem('focusMode', shouldEnable ? 'true' : 'false');
-    }
-
-    updateFocusModeLabel(window.currentLanguage || localStorage.getItem('language') || 'en');
-}
-
-function updateFocusModeLabel(lang) {
-    if (!focusModeState.button || !focusModeState.label) {
-        return;
-    }
-
-    const language = lang || window.currentLanguage || localStorage.getItem('language') || 'en';
-    const key = focusModeState.enabled ? 'focus-toggle-off' : 'focus-toggle-on';
-    const text = getTranslationValue ? getTranslationValue(key, language) : (translations && translations[language] && translations[language][key]) || key;
-    focusModeState.label.textContent = text;
-    focusModeState.button.setAttribute('aria-label', text);
-}
-
-function initMusicPlayer() {
-    if (musicState.button) {
-        return;
-    }
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'music-toggle';
-    btn.innerHTML = '<i class="fas fa-music"></i><span></span>';
-    btn.setAttribute('aria-pressed', 'false');
-    btn.addEventListener('click', function() {
-        setMusicEnabled(!musicState.enabled);
-    });
-
-    document.body.appendChild(btn);
-    musicState.button = btn;
-    musicState.label = btn.querySelector('span');
-
-    const saved = localStorage.getItem('musicEnabled') === 'true';
-    updateMusicLabel(window.currentLanguage || localStorage.getItem('language') || 'en');
-    window.updateMusicLanguage = updateMusicLabel;
-    if (saved) {
-        setTimeout(() => {
-            setMusicEnabled(true);
-        }, 0);
-    }
-}
-
-function ensureMusicAudio() {
-    if (!musicState.audio) {
-        const audio = new Audio('assets/audio/ambient.mp3');
-        audio.loop = true;
-        audio.volume = 0.25;
-        audio.preload = 'auto';
-        let triedFallback = false;
-        audio.addEventListener('error', function handleAudioError() {
-            if (!triedFallback) {
-                triedFallback = true;
-                audio.src = 'https://cdn.pixabay.com/download/audio/2023/10/01/audio_eefae01ed5.mp3?filename=ethereal-ambient-piano-2-178605.mp3';
-                audio.load();
-            }
-        });
-        musicState.audio = audio;
-    }
-    return musicState.audio;
-}
-
-function setMusicEnabled(enabled, options) {
-    if (!musicState.button) {
-        return;
-    }
-
-    const shouldEnable = Boolean(enabled);
-    musicState.enabled = shouldEnable;
-    musicState.button.setAttribute('aria-pressed', shouldEnable ? 'true' : 'false');
-
-    const audio = ensureMusicAudio();
-
-    if (shouldEnable) {
-        musicState.isAttemptingPlay = true;
-        audio.play().then(() => {
-            musicState.isAttemptingPlay = false;
-        }).catch(() => {
-            musicState.isAttemptingPlay = false;
-            musicState.enabled = false;
-            musicState.button.setAttribute('aria-pressed', 'false');
-            if (!options || !options.skipStorage) {
-                localStorage.setItem('musicEnabled', 'false');
-            }
-            updateMusicLabel(window.currentLanguage || localStorage.getItem('language') || 'en');
-            console.warn('Unable to start background music. Please ensure the audio file exists at assets/audio/ambient.mp3 or check autoplay permissions.');
-            return;
-        });
-    } else if (audio && !audio.paused) {
-        audio.pause();
-    }
-
-    if (!options || !options.skipStorage) {
-        localStorage.setItem('musicEnabled', shouldEnable ? 'true' : 'false');
-    }
-
-    updateMusicLabel(window.currentLanguage || localStorage.getItem('language') || 'en');
-}
-
-function updateMusicLabel(lang) {
-    if (!musicState.button || !musicState.label) {
-        return;
-    }
-    const language = lang || window.currentLanguage || localStorage.getItem('language') || 'en';
-    const key = musicState.enabled ? 'music-toggle-off' : 'music-toggle-on';
-    const text = getTranslationValue(key, language);
-    musicState.label.textContent = text || '';
-    musicState.button.setAttribute('aria-label', text || '');
-}
+// Music player functions removed - WhatsApp button added instead
