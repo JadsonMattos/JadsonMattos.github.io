@@ -530,30 +530,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setLanguage(initialLang);
 });
 
-// Mobile - ajustar posições dos botões flutuantes
-if (window.innerWidth <= 600) {
-    const style = document.createElement('style');
-    style.textContent = `
-        .language-toggle { 
-            top: 15px !important; 
-            right: 15px !important; 
-            padding: 8px 12px !important;
-            font-size: 0.8rem !important;
-        }
-        .theme-toggle { 
-            bottom: 20px !important; 
-            right: 15px !important; 
-            width: 45px !important;
-            height: 45px !important;
-            font-size: 1.2rem !important;
-        }
-        .whatsapp-float {
-            bottom: 20px !important;
-            left: 15px !important;
-            width: 50px !important;
-            height: 50px !important;
-            font-size: 1.5rem !important;
-        }
-    `;
-    document.head.appendChild(style);
-}
+// Mobile - posições dos botões agora gerenciadas pelo CSS em main.css
+// Language toggle fica abaixo do navbar no mobile para não conflitar com WhatsApp

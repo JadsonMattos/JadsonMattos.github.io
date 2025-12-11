@@ -669,7 +669,7 @@
 
 @media (max-width: 768px) {
     .sticky-cta {
-        bottom: 100px;
+        bottom: 110px; /* Above back-to-top button (80px + 30px spacing) */
         width: calc(100% - 40px);
         max-width: 320px;
         padding: 14px 24px;
@@ -680,6 +680,18 @@
     .sticky-cta.visible {
         transform: translateX(-50%) translateY(0);
     }
+
+    /* Ensure buttons don't overlap on mobile */
+    .back-to-top {
+        bottom: 75px; /* Above theme toggle (20px + 55px button height) */
+    }
+
+    .theme-toggle {
+        bottom: 15px; /* Ensure enough space from edge */
+        left: 15px;
+    }
+
+    /* Presentation toggle positioning handled in language-toggle media queries below */
 
     .contact-wrapper {
         gap: 20px;
@@ -697,10 +709,28 @@
 
 @media (max-width: 480px) {
     .sticky-cta {
-        bottom: 90px;
+        bottom: 100px; /* Above back-to-top */
         padding: 12px 20px;
         font-size: 0.9rem;
     }
+
+    .back-to-top {
+        bottom: 65px; /* Above theme toggle */
+        right: 12px;
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+
+    .theme-toggle {
+        bottom: 12px;
+        left: 12px;
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+
+    /* Presentation toggle positioning handled in language-toggle media queries below */
 
     .contact-info-card,
     .contact-form-card {
@@ -712,14 +742,7 @@
     }
 }
 
-@media (max-width: 768px) {
-    .back-to-top {
-        bottom: 80px;
-        right: 15px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
+/* Back to top mobile styles moved to main mobile section above */
 }
 
 /* Particles.js Background */
@@ -890,18 +913,7 @@
     font-weight: 600;
 }
 
-/* Mobile Timeline */
-@media (max-width: 768px) {
-    .timeline-item {
-        flex: 0 0 320px;
-        min-width: 320px;
-    }
-    
-    .timeline {
-        gap: 24px;
-        padding: 0 16px;
-    }
-}
+/* Mobile Timeline styles moved to main mobile section above */
 
 /* Skill Badges Animados */
 .skill-badges-container {
@@ -989,6 +1001,23 @@
 
 .services-horizontal-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(102, 126, 234, 0.7);
+}
+
+.services-horizontal-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 126, 234, 0.5) transparent;
+  padding: 0 0 16px 0;
+  margin-bottom: 40px;
+}
+
+.services-horizontal-scroll .blog-post {
+  flex: 0 0 280px;
+  min-width: 280px;
 }
 
 html {
@@ -1455,6 +1484,232 @@ img {
 
   .nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  /* Ensure nav-actions (WhatsApp) doesn't conflict with presentation toggle */
+  .nav-actions {
+    gap: 12px;
+  }
+
+  .whatsapp-button {
+    width: 46px;
+    height: 46px;
+  }
+  
+  .whatsapp-button i {
+    font-size: 1.25rem;
+  }
+
+  /* Hero Section Mobile */
+  .hero-content .profile-pic {
+    width: 140px;
+    height: 140px;
+  }
+
+  .head-title {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    margin-bottom: 20px;
+  }
+
+  .head-punchline {
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
+    margin-bottom: 32px;
+  }
+
+  .hero-scroll-indicator {
+    margin-top: 40px;
+    font-size: 0.85rem;
+  }
+
+  /* Section Wrapper Mobile */
+  .section-wrapper {
+    padding: 80px 20px;
+  }
+
+  /* Timeline Mobile */
+  .timeline-item {
+    flex: 0 0 calc(100vw - 80px);
+    min-width: calc(100vw - 80px);
+    max-width: 320px;
+  }
+
+  .timeline {
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  /* Skills Cards Mobile */
+  .skill-section-card {
+    flex: 0 0 calc(100vw - 80px);
+    min-width: calc(100vw - 80px);
+    max-width: 360px;
+  }
+
+  .skill-chart-card {
+    flex: 0 0 calc(100vw - 80px);
+    min-width: calc(100vw - 80px);
+    max-width: 320px;
+  }
+
+  /* Projects Cards Mobile */
+  .projects-wrapper .project-card {
+    flex: 0 0 calc(100vw - 80px);
+    min-width: calc(100vw - 80px);
+    max-width: 380px;
+  }
+
+  /* Services Cards Mobile */
+  .services-horizontal-scroll .blog-post {
+    flex: 0 0 calc(100vw - 80px);
+    min-width: calc(100vw - 80px);
+    max-width: 280px;
+  }
+
+  /* Metrics Grid Mobile */
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+  .metric-card {
+    padding: 20px;
+  }
+
+  .metric-number {
+    font-size: 2.5rem;
+  }
+
+  .metric-number--text {
+    font-size: 1.8rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .hero-content .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .head-title {
+    font-size: clamp(1.35rem, 6vw, 1.9rem);
+    margin-bottom: 16px;
+  }
+
+  .head-punchline {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    margin-bottom: 24px;
+  }
+
+  .section-wrapper {
+    padding: 60px 16px;
+  }
+
+  .section-heading {
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+    margin-bottom: 32px;
+  }
+
+  .timeline-item {
+    flex: 0 0 calc(100vw - 64px);
+    min-width: calc(100vw - 64px);
+  }
+
+  .skill-section-card {
+    flex: 0 0 calc(100vw - 64px);
+    min-width: calc(100vw - 64px);
+    padding: 20px;
+  }
+
+  .skill-chart-card {
+    flex: 0 0 calc(100vw - 64px);
+    min-width: calc(100vw - 64px);
+  }
+
+  .projects-wrapper .project-card {
+    flex: 0 0 calc(100vw - 64px);
+    min-width: calc(100vw - 64px);
+  }
+
+  .services-horizontal-scroll .blog-post {
+    flex: 0 0 calc(100vw - 64px);
+    min-width: calc(100vw - 64px);
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .metric-card {
+    padding: 18px;
+  }
+
+  .metric-number {
+    font-size: 2rem;
+  }
+
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  .head-inner-wrap {
+    padding: 0 16px;
+  }
+
+  .whatsapp-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .whatsapp-button i {
+    font-size: 1.3rem;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 360px) {
+  .hero-content .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .head-title {
+    font-size: clamp(1.2rem, 7vw, 1.6rem);
+  }
+
+  .section-wrapper {
+    padding: 50px 12px;
+  }
+
+  .timeline-item,
+  .skill-section-card,
+  .skill-chart-card,
+  .projects-wrapper .project-card,
+  .services-horizontal-scroll .blog-post {
+    flex: 0 0 calc(100vw - 48px);
+    min-width: calc(100vw - 48px);
+  }
+
+  /* Ensure enough space for all fixed buttons */
+  .sticky-cta {
+    bottom: 95px;
+  }
+
+  .back-to-top {
+    bottom: 60px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .theme-toggle {
+    bottom: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }
 /* Old .head-title styles removed - using new .hero-content .head-title */
@@ -2091,9 +2346,8 @@ body.mini-game-active {
 }
 
 @media (max-width: 600px) {
+  /* Presentation toggle positioning handled in language-toggle media queries */
   .presentation-toggle {
-    top: 72px;
-    right: 15px;
     font-size: 0.85rem;
     padding: 8px 14px;
     box-shadow: 0 12px 24px rgba(15, 23, 42, 0.2);
@@ -2159,17 +2413,7 @@ body.mini-game-active {
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .skill-section-card {
-    flex: 0 0 360px;
-    min-width: 360px;
-  }
-  
-  .skill-chart-card {
-    flex: 0 0 320px;
-    min-width: 320px;
-  }
-}
+/* Skills mobile styles moved to main mobile section above */
 .center-align {
   text-align: center;
 }
@@ -2501,66 +2745,13 @@ a {
     gap: 8px;
   }
 }
-@media screen and (max-width: 600px) {
-  .head-menu-wrap {
-    grid-template-columns: auto auto;
-        grid-template-columns: auto auto;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    width: 80%;
-  }
-  #nav {
-    background-attachment: unset;
-  }
-  .head-title {
-    display: block;
-    text-align: center;
-    font-size: 2.75rem;
-  }
-  .head-punchline {
-    text-align: center;
-  }
-  .skills-horizontal-scroll {
-    gap: 16px;
-  }
-  
-  .skill-section-card {
-    flex: 0 0 320px;
-    min-width: 320px;
-  }
-  .set-size {
-    font-size: 8em;
-  }
-  .pie-wrapper .label {
-    font-size: 0.9rem;
-    top: 3rem;
-  }
-  .projects-grid {
-    grid-template-columns: auto;
-        grid-template-columns: auto;
-  }
-  .projects-wrapper {
-    
-    display: grid;
-    grid-template-columns: auto;
-        grid-template-columns: auto;
-    grid-gap: 10px;
-            justify-content: center;
-  }
-}
+/* Old media query rules removed - using new mobile-first responsive design above */
 @media screen and (max-height: 450px) and (max-width: 600px) {
   .head {
     min-height: 525px;
   }
 }
-@media screen and (max-width: 400px) {
-  .head-menu-wrap {
-    grid-template-columns: auto auto;
-        grid-template-columns: auto auto;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-  }
-}
+/* Old media query removed - using new responsive design above */
 @media screen and (max-height: 525px) {
   .head {
     min-height: 500px;
@@ -2595,14 +2786,7 @@ a {
   box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
 
-@media screen and (max-width: 600px) {
-  .theme-toggle {
-    bottom: 20px;
-    left: 20px;
-    width: 45px;
-    height: 45px;
-  }
-}
+/* Theme toggle mobile styles moved to main mobile section above */
 
 /* Focus toggle removed - no longer needed */
 
@@ -2685,50 +2869,85 @@ a {
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
 
-@media (max-width: 768px) {
-  .whatsapp-button {
-    width: 48px;
-    height: 48px;
-  }
-  
-  .whatsapp-button i {
-    font-size: 1.3rem;
-  }
-}
+/* WhatsApp button mobile styles moved to main mobile section above */
 
 .language-toggle {
   max-width: calc(100vw - 32px) !important;
 }
 
+/* Mobile: Language toggle positioned below navbar to avoid WhatsApp button */
+@media (max-width: 768px) {
+  .language-toggle {
+    top: 82px !important;
+    right: 20px !important;
+    padding: 8px 12px !important;
+    font-size: 0.8rem !important;
+    z-index: 1001 !important; /* Above presentation toggle (1000) */
+  }
+  
+  /* Presentation toggle moved further down to avoid language toggle */
+  .presentation-toggle {
+    top: 130px !important; /* Below language toggle */
+    right: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-toggle {
+    top: 80px !important;
+    right: 15px !important;
+    padding: 6px 10px !important;
+    font-size: 0.75rem !important;
+    z-index: 1001 !important;
+  }
+  
+  .presentation-toggle {
+    top: 125px !important; /* Below language toggle */
+    right: 15px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .language-toggle {
+    top: 78px !important;
+    right: 12px !important;
+    padding: 6px 8px !important;
+    z-index: 1001 !important;
+  }
+  
+  .presentation-toggle {
+    top: 120px !important; /* Below language toggle */
+    right: 12px !important;
+  }
+}
+
 @media (max-width: 520px) {
-  .presentation-toggle,
-  .focus-toggle {
-    width: 52px;
-    height: 52px;
+  .presentation-toggle {
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    padding: 12px;
+    padding: 10px;
     justify-content: center;
     gap: 0;
+    /* Position handled in language-toggle media queries */
   }
 
-  .presentation-toggle span,
-  .focus-toggle span {
+  .presentation-toggle span {
     display: none;
   }
 
-  .presentation-toggle i,
-  .focus-toggle i {
+  .presentation-toggle i {
     font-size: 1.15rem;
   }
 
-  .presentation-toggle {
-    top: 124px;
-    right: 18px;
-  }
+    .whatsapp-button {
+      width: 42px;
+      height: 42px;
+    }
 
-  .focus-toggle {
-    top: 70px;
-    right: 18px;
+    .whatsapp-button i {
+      font-size: 1.15rem;
+    }
   }
 }
 
