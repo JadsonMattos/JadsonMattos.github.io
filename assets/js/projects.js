@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let render_projects = (slug) => {
     let projects_area = document.querySelector('.projects-wrapper');
-    
+
     if (!projects_area) return;
 
     // Remover classe hover de todos os botões

@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initMobileNavigation();
         initHeroTitleToggle();
         // Focus mode removed
-        general_utils();
+    general_utils();
         initScrollAnimations();
         initCounterAnimations();
         initLightbox();
@@ -112,7 +112,8 @@ function initMobileNavigation() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const offsetTop = target.offsetTop - 72; // Account for fixed navbar
+                    // Use scrollIntoView with offset calculation
+                    const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 72;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -143,7 +144,7 @@ function initMobileNavigation() {
         scrollIndicator.addEventListener('click', function() {
             const aboutSection = document.getElementById('about');
             if (aboutSection) {
-                const offsetTop = aboutSection.offsetTop - 72; // Account for fixed navbar
+                const offsetTop = aboutSection.getBoundingClientRect().top + window.pageYOffset - 72; // Account for fixed navbar
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -1039,9 +1040,11 @@ function smoothScrollInit() {
                 const target = document.querySelector(href);
                 
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    // Use scrollIntoView with offset calculation
+                    const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 72;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
                 }
             }
@@ -1155,7 +1158,7 @@ function initPresentationMode() {
             </div>
             <div class="presentation-hint" data-i18n="presentation-hint">Use ← → keys to navigate, press P to toggle, ESC to exit.</div>
         </div>
-    `;
+        `;
 
     overlay.addEventListener('click', function(event) {
         if (event.target === overlay) {
@@ -1309,7 +1312,11 @@ function buildPresentationSlides() {
                 setTimeout(() => {
                     const target = document.getElementById(targetId);
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 72;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
                     }
                 }, 350);
             });
@@ -1664,10 +1671,10 @@ function launchMiniGame() {
             <div class="mini-game-score">${getTranslationValue('easteregg-minigame-score', lang)}: <span>0</span> / 5</div>
             <div class="mini-game-arena">
                 <button type="button" class="mini-game-target" aria-label="${getTranslationValue('easteregg-minigame-target', lang)}">🚀</button>
-            </div>
+        </div>
             <button type="button" class="mini-game-start">${getTranslationValue('easteregg-minigame-start', lang)}</button>
             <div class="mini-game-feedback" aria-live="polite"></div>
-        </div>
+    </div>
     `;
 
     document.body.appendChild(overlay);

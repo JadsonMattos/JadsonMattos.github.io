@@ -9,6 +9,7 @@ const translations = {
         'nav-skills': 'SKILLS',
         'nav-projects': 'PROJECTS',
         'nav-services': 'SERVICES',
+        'nav-contact': 'GET IN TOUCH',
         
         // About Section
         'about-title': 'Hello, I\'m Jadson 👋',
@@ -217,6 +218,7 @@ const translations = {
         'nav-skills': 'SKILLS',
         'nav-projects': 'PROJETOS',
         'nav-services': 'SERVIÇOS',
+        'nav-contact': 'ENTRE EM CONTATO',
         
         // About Section
         'about-title': 'Olá, sou Jadson 👋',
@@ -491,16 +493,18 @@ document.addEventListener('DOMContentLoaded', function() {
         top: 20px;
         right: 20px;
         z-index: 1000;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
+        background: rgba(255, 255, 255, 0.9);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
+        color: #222;
+        border: 1px solid rgba(0, 0, 0, 0.1);
         padding: 10px 15px;
         border-radius: 25px;
         cursor: pointer;
         font-weight: bold;
         font-size: 0.9rem;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        transition: all 0.3s;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     `;
     
     // Idioma padrão: INGLÊS
@@ -517,11 +521,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     langBtn.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.1)';
+        this.style.transform = 'scale(1.1) translateY(-2px)';
+        this.style.boxShadow = '0 12px 32px rgba(0, 255, 136, 0.25), 0 0 0 1px rgba(0, 255, 136, 0.2)';
+        this.style.borderColor = 'rgba(0, 255, 136, 0.3)';
     });
     
     langBtn.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
+        this.style.transform = 'scale(1) translateY(0)';
+        this.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05)';
+        this.style.borderColor = 'rgba(0, 0, 0, 0.1)';
     });
     
     document.body.appendChild(langBtn);
