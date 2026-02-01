@@ -1722,10 +1722,12 @@ img {
   }
 
   /* Projects Cards Mobile */
-  .projects-wrapper .project-card {
-    flex: 0 0 calc(100vw - 80px);
-    min-width: calc(100vw - 80px);
-    max-width: 380px;
+  .projects-wrapper {
+    grid-auto-columns: minmax(280px, 380px);
+  }
+  .projects-wrapper .project-card,
+  .projects-wrapper .wrapper {
+    min-width: 0;
   }
 
   /* Services Cards Mobile */
@@ -1796,9 +1798,8 @@ img {
     min-width: calc(100vw - 64px);
   }
 
-  .projects-wrapper .project-card {
-    flex: 0 0 calc(100vw - 64px);
-    min-width: calc(100vw - 64px);
+  .projects-wrapper {
+    grid-auto-columns: minmax(280px, calc(100vw - 64px));
   }
 
   .services-horizontal-scroll .blog-post {
@@ -1855,10 +1856,13 @@ img {
   .timeline-item,
   .skill-section-card,
   .skill-chart-card,
-  .projects-wrapper .project-card,
   .services-horizontal-scroll .blog-post {
     flex: 0 0 calc(100vw - 48px);
     min-width: calc(100vw - 48px);
+  }
+
+  .projects-wrapper {
+    grid-auto-columns: minmax(260px, calc(100vw - 48px));
   }
 
   /* Ensure enough space for all fixed buttons */
@@ -2646,9 +2650,10 @@ body.mini-game-active {
   text-align: center;
 }
 .projects-wrapper {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 420px;
   align-items: stretch;
-  align-content: stretch;
   gap: 24px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -2676,17 +2681,16 @@ body.mini-game-active {
 }
 
 .projects-wrapper .project-card {
-  flex: 0 0 420px;
-  min-width: 420px;
+  min-width: 0;
 }
 
 .projects-wrapper .wrapper {
   height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   max-width: none;
-  flex: 0 0 420px;
-  min-width: 420px;
+  min-width: 0;
 }
 .full-width {
   width: 100%;

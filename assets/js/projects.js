@@ -21,13 +21,49 @@ let render_projects = (slug) => {
 
     let projects_obj = [
         {
+            image: null,
+            link: 'https://github.com/JadsonMattos/movie_reservation_system',
+            title: 'Movie Reservation System',
+            demo: null,
+            technologies: ['Java 21', 'Spring Boot 3', 'PostgreSQL', 'JWT', 'Redis', 'Docker'],
+            description: "Backend for a movie theater seat reservation service. Users sign up, log in, browse movies and showtimes, reserve seats, and manage reservations. Admins manage content and access capacity/revenue reports. DDD + Clean Architecture.",
+            categories: ['featured', 'backend']
+        },
+        {
+            image: null,
+            link: 'https://github.com/JadsonMattos/real-time_leaderboard',
+            title: 'Real-Time Leaderboard',
+            demo: null,
+            technologies: ['NestJS', 'TypeScript', 'Redis', 'PostgreSQL', 'Prisma', 'JWT', 'SSE'],
+            description: "Backend for a real-time leaderboard: users compete in games, submit scores, and see rankings. Built with NestJS, Redis sorted sets, PostgreSQL (Prisma). Includes SSE + Redis Pub/Sub for live updates.",
+            categories: ['featured', 'backend']
+        },
+        {
+            image: null,
+            link: 'https://github.com/JadsonMattos/database_backup_utility',
+            title: 'Database Backup Utility',
+            demo: null,
+            technologies: ['Go', 'PostgreSQL', 'MySQL', 'MongoDB', 'S3', 'GCS', 'gzip/zstd'],
+            description: "CLI utility for backing up and restoring databases. Supports PostgreSQL, MySQL, MongoDB, SQLite with local and cloud storage (AWS S3, GCS, Azure Blob), compression, retention policies, and optional Slack notifications.",
+            categories: ['featured', 'backend']
+        },
+        {
+            image: null,
+            link: 'https://github.com/JadsonMattos/scalable_e-commerce',
+            title: 'Scalable E-Commerce',
+            demo: null,
+            technologies: ['Backend', 'REST API', 'Scalability', 'Microservices'],
+            description: "Backend system for a scalable e-commerce platform. APIs and architecture focused on high availability, performance, and growth.",
+            categories: ['featured', 'backend']
+        },
+        {
             image: 'assets/images/lessons.png',
             link: 'https://github.com/JadsonMattos/LessonsLearned',
             title: 'Lessons Learned',
             demo: 'https://jadsonmattos.github.io/LessonsLearned',
             technologies: ['HTML5', 'CSS3', 'JavaScript'],
             description: "✨ Responsive web page with semantic HTML5 and modern CSS3. Demonstrates clean code structure, CSS positioning techniques, and responsive design principles.",
-            categories: ['featured', 'fundamentos']
+            categories: ['fundamentos']
         },
         {
             image: 'assets/images/calendar.png',
@@ -36,7 +72,7 @@ let render_projects = (slug) => {
             demo: 'https://jadsonmattos.github.io/Tryber-Calendar',
             technologies: ['JavaScript', 'DOM', 'Events'],
             description: "📅 Dynamic calendar application with task management. Features: Event handling, DOM manipulation, data persistence with LocalStorage, and interactive UI components.",
-            categories: ['featured', 'fundamentos']
+            categories: ['fundamentos']
         },
         {
             image: 'assets/images/paleta.png',
@@ -45,7 +81,7 @@ let render_projects = (slug) => {
             demo: 'https://jadsonmattos.github.io/Pixel-Arts',
             technologies: ['JavaScript', 'Canvas', 'CSS Grid'],
             description: "🎨 Interactive pixel art editor with color palette management. Implements dynamic grid generation, event listeners, and real-time canvas rendering.",
-            categories: ['featured', 'fundamentos']
+            categories: ['fundamentos']
         },
         {
             image: 'assets/images/todo.png',
@@ -54,7 +90,7 @@ let render_projects = (slug) => {
             demo: 'https://jadsonmattos.github.io/Todo-List',
             technologies: ['JavaScript', 'LocalStorage', 'CRUD'],
             description: "✅ Full-featured task management app. Implements CRUD operations, data persistence, filtering, and state management with vanilla JavaScript.",
-            categories: ['featured', 'fundamentos']
+            categories: ['fundamentos']
         },
         {
             image: 'assets/images/meme.png',
